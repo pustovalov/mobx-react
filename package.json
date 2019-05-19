@@ -15,7 +15,8 @@
     "prettier": "prettier --write \"**/*.js\" \"**/*.ts\"",
     "test": "jest && yarn test:ts",
     "test:ts": "tsc -p test/ts",
-    "test:travis": "yarn build && jest && yarn test:ts && size-limit",
+    "test:ci": "jest -i --coverage && yarn test:ts",
+    "size": "size-limit",
     "build": "node build-rollup.js && shx cp src/index.d.ts index.d.ts && shx cp src/index.d.ts native.d.ts && shx cp src/index.d.ts custom.d.ts",
     "watch": "jest --watch"
   },
@@ -42,6 +43,7 @@
     "@types/react-dom": "^16.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "coveralls": "^3.0.3",
     "create-react-class": "^15.6.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.0.0",
